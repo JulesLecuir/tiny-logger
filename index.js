@@ -24,22 +24,23 @@ module.exports = {
     title
 }
 
-function bigTitle(str, {barStyle, width, mode}={}) {
+function bigTitle(str, {barStyle, width, mode, lineBefore, lineAfter} = {}) {
     barStyle = barStyle || titlingDefaults.barStyle;
     width = width || titlingDefaults.width;
     mode = mode || titlingDefaults.mode;
     const bar = barStyle.repeat(width);
-    module.exports[mode](bar + "\n" + centerText(str, width) + "\n" + bar)
+    module.exports[mode]((lineBefore ? "\n" : "") + bar + "\n" + centerText(str, width) + "\n" + bar + (lineAfter ? "\n" : ""))
+
 }
 
-function title(str, {barStyle, width, mode}={}) {
+function title(str, {barStyle, width, mode, lineBefore, lineAfter} = {}) {
     barStyle = barStyle || titlingDefaults.barStyle;
     width = width || titlingDefaults.width;
     mode = mode || titlingDefaults.mode;
-    module.exports[mode](centerText(str, width, barStyle))
+    module.exports[mode]((lineBefore ? "\n" : "") + centerText(str, width, barStyle) + (lineAfter ? "\n" : ""))
 }
 
-function centerText(text, width, char=' ') {
+function centerText(text, width, char = ' ') {
     let parts = text.split('\n');
     parts = parts.map(s => s
         .padStart(width / 2 + s.length / 2, char)

@@ -32,7 +32,9 @@ throw LOG.errorWithTrace(Error("An error"));
 // - width determines the width of the titling. Default is 50.
 // - mode determines which function above should be used to print. Default is "info", other possible values are 
 //   "success" and "log" (other functions may result in unexpected behavior).
+// - lineBefore and lineAfter allow for making an extra new line before and after the title
 LOG.title("A title");
 LOG.title("A title", {barStyle: "-=="});
-LOG.title("A title", {barStyle: "=", width: 70, mode: "success"});
+LOG.title("A title", {barStyle: "=", width: 70, lineBefore: true, lineAfter: true, mode: "success"});
+LOG.bigTitle("A title", {barStyle: "~"});
 ```
