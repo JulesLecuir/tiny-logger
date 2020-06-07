@@ -1,5 +1,11 @@
 require('colors');
 
+const titlingDefaults = {
+    barStyle: "=",
+    width: 70,
+    mode: "info"
+};
+
 module.exports = {
     info: (str) => console.info(str.blue),
     success: (str) => console.info(str.green),
@@ -19,17 +25,17 @@ module.exports = {
 }
 
 function bigTitle(str, {barStyle, width, mode}={}) {
-    barStyle = barStyle || "=";
-    width = width || 50;
-    mode = mode || "info";
+    barStyle = barStyle || titlingDefaults.barStyle;
+    width = width || titlingDefaults.width;
+    mode = mode || titlingDefaults.mode;
     const bar = barStyle.repeat(width);
     module.exports[mode](bar + "\n" + centerText(str, width) + "\n" + bar)
 }
 
 function title(str, {barStyle, width, mode}={}) {
-    barStyle = barStyle || "=";
-    width = width || 50;
-    mode = mode || "info";
+    barStyle = barStyle || titlingDefaults.barStyle;
+    width = width || titlingDefaults.width;
+    mode = mode || titlingDefaults.mode;
     module.exports[mode](centerText(str, width, barStyle))
 }
 
