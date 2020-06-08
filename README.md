@@ -12,9 +12,10 @@ LOG.info("An info message");
 LOG.success("A success message");
 LOG.log("A log message");
 
-// Logs with date and label
+// Logs with date and label, or not using noLabel=true
 LOG.debug("A debug message");
 LOG.warn("A warning message");
+LOG.warn("A warning message without label", true);
 
 // Error logs
 LOG.error(Error("An error"));
