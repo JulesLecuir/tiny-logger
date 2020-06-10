@@ -12,6 +12,7 @@ module.exports = {
     log: (str) => console.log(str),
     debug: (str, noLabel=false) => console.debug(`${new Date().toLocaleTimeString()} ${noLabel? "" : "- DEBUG: "}${str}`),
     warn: (str, noLabel=false) => console.warn(`${new Date().toLocaleTimeString()} ${noLabel? "" : "- WARNING: "}${str}`.yellow),
+    warnRed: (str, noLabel=false) => console.warn(`${new Date().toLocaleTimeString()} ${noLabel? "" : "- WARNING: "}${str}`.red),
     errorWithTrace: (err, str) => {
         console.error((str ? `--------------\n${new Date().toLocaleTimeString()} - ERROR: ${str}\n` : `--------------\n${new Date().toLocaleTimeString()} - ERROR: `).red + `${err.stack}\n--------------`.red);
         return err;
