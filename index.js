@@ -2,12 +2,12 @@ require('colors');
 
 const titlingDefaults = {
     barStyle: "=",
-    width: 70,
+    width: 80,
     mode: "info"
 };
 
 module.exports = {
-    info: (str) => console.info(str.blue),
+    info: (str) => console.info(str.cyan),
     success: (str) => console.info(str.green),
     log: (str) => console.log(str),
     debug: (str, noLabel=false) => console.debug(`${new Date().toLocaleTimeString()} ${noLabel? "" : "- DEBUG: "}${str}`),
